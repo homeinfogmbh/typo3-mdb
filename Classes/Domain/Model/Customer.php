@@ -1,18 +1,28 @@
 <?php
 
-namespace Homeinfo\Pinlogin\Domain\Model;
+namespace Homeinfo\mdb\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use Homeinfo\mdb\Domain\Model\Company;
 
-class Customer extends AbstractEntity
+final class Customer
 {
-    /**
-     * @var int $pid
-     */
-    public $pid;
+    function __construct(
+        public readonly int $id,
+        public readonly Company $company,
+        public readonly ?int $reseller,
+        public readonly string $abbreviation,
+        public readonly ?string $annotation,
+    )
+    {
+    }
 
-    /**
-     * @var int $cid
-     */
-    public $cid;
+    public static function fromArray(array $array, Company $company): Self {
+        return new self(
+            $array['id'],
+            $company,
+            $array['reseller'],
+            $array['abbreviation'],
+            $array['annotation'],
+        );
+    }
 }
