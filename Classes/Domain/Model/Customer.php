@@ -25,8 +25,8 @@ final class Customer
                     'name' => $record['company_name'],
                     'annotation' => $record['company_annotation'],
                 ],
-                Address::fromArray([
-                    'id' => $record['address_id'],
+                (($address_id = $record['address_id']) === null) ? null : Address::fromArray([
+                    'id' => $address_id,
                     'street' => $record['address_street'],
                     'house_number' => $record['address_house_number'],
                     'zip_code' => $record['address_zip_code'],
