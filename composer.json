@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Homeinfo\\Pinlogin\\": "Classes/"
+            "Homeinfo\\mdb\\": "Classes/"
         }
     },
     "extra": {
