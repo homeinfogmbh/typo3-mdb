@@ -7,6 +7,11 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 class CustomerRepository
 {
+    public function __construct(
+        private readonly ConnectionPool $connectionPool
+    ) {
+    }
+
     public function findById(int $id): QueryResultInterface {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer');
         $result = Self::select($queryBuilder)
