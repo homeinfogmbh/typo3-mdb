@@ -15,8 +15,7 @@ class CustomerRepository
     }
 
     public function findById(int $id): QueryResultInterface {
-        $queryBuilder = $this->select();
-        return $queryBuilder
+        return ($queryBuilder = $this->select())
             ->where(
                 $queryBuilder->expr()->eq(
                     'id',
@@ -32,9 +31,7 @@ class CustomerRepository
     }
 
     private function select(): QueryBuilder {
-        return $this
-            ->connectionPool
-            ->getQueryBuilderForTable('customer')
+        return ($queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer'))
             ->select('*')
             ->from('customer')
             ->join(
