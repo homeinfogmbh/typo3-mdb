@@ -7,7 +7,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-use Homeinfo\mdb\Domain\Repository\CheckResultsRepository;
+use Homeinfo\mdb\Domain\Repository\CustomerRepository;
 
 class DebugController extends ActionController
 {
@@ -15,8 +15,8 @@ class DebugController extends ActionController
     {
         
         $repository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(CheckResultsRepository::class);
-        $records = $repository->findBySystem(12);
+            ->get(CustomerRepository::class);
+        $records = $repository->list();
         DebuggerUtility::var_dump($records, "Records: ");
         $this->view->assign('check_results', $records);
     }

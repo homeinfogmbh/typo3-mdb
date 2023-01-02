@@ -18,6 +18,12 @@ class CustomerRepository
             )
             ->executeQuery();
 
+        return $result->fetch();
+    }
+
+    public function list(): QueryResultInterface {
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer');
+        $result = Self::select($queryBuilder)->executeQuery();
         return $result->fetchAll();
     }
 
