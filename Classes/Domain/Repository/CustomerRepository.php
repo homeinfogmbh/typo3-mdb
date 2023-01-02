@@ -31,7 +31,7 @@ class CustomerRepository
 
     private function select(): QueryBuilder {
         return ($queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer'))
-            ->select('*')
+            ->select('customer.*', 'company.*', 'address.*')
             ->from('customer')
             ->join(
                 'customer',
