@@ -33,16 +33,21 @@ class CustomerRepository
         return ($queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer'))
             ->select(
                 'customer.*',
-                'company.id AS company_id',
-                'company.name AS company_name',
-                'company.annotation AS company_annotation',
-                'address.id AS address_id',
-                'address.street AS address_street',
-                'address.house_number AS address_house_number',
-                'address.zip_code AS address_zip_code',
-                'address.city AS address_city',
-                'address.district AS address_district',
+                'company.* AS company',
+                'address.* AS address',
             )
+            // ->select(
+            //     'customer.*',
+            //     'company.id AS company_id',
+            //     'company.name AS company_name',
+            //     'company.annotation AS company_annotation',
+            //     'address.id AS address_id',
+            //     'address.street AS address_street',
+            //     'address.house_number AS address_house_number',
+            //     'address.zip_code AS address_zip_code',
+            //     'address.city AS address_city',
+            //     'address.district AS address_district',
+            // )
             ->from('customer')
             ->join(
                 'customer',
