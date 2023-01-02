@@ -16,6 +16,27 @@ final class Customer
     {
     }
 
+    public static function fromJoinedRecord(array $record): Self {
+        return Self::fromArray(
+            $record,
+            Company::fromArray(
+                [
+                    'id' => $record['company_id'],
+                    'name' => $record['company_name'],
+                    'annotation' => $record['company_annotation'],
+                ],
+                Address::fromArray([
+                    'id' => $record['address_id'],
+                    'street' => $record['address_street'],
+                    'house_number' => $record['address_house_number'],
+                    'zip_code' => $record['address_zip_code'],
+                    'city' => $record['address_city'],
+                    'district' => $record['address_district'],
+                ]),
+            )
+        );
+    }
+
     public static function fromArray(array $array, Company $company): Self {
         return new self(
             $array['id'],
