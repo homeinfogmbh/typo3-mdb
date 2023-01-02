@@ -2,6 +2,8 @@
 
 namespace Homeinfo\mdb\Domain\Repository;
 
+use Generator;
+
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
@@ -27,7 +29,7 @@ class CustomerRepository
             ->fetch();
     }
 
-    public function list() {
+    public function list(): Generator {
         foreach ($this->select()->executeQuery()->fetchAll() as &$record)
         {
             yield Customer::fromJoinedRecord($record);
