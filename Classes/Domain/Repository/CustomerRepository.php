@@ -39,7 +39,7 @@ class CustomerRepository
                 'company',
                 $queryBuilder->expr()->eq('company.id', $queryBuilder->quoteIdentifier('customer.company'))
             )
-            ->join(
+            ->leftJoin(
                 'company',
                 'address',
                 'address',
