@@ -15,27 +15,26 @@ class CustomerRepository
     }
 
     public function findById(int $id): QueryResultInterface {
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer');
-        $result = Self::select($queryBuilder)
+        $queryBuilder = $this->select();
+        return $queryBuilder
             ->where(
                 $queryBuilder->expr()->eq(
                     'id',
                     $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)
                 )
             )
-            ->executeQuery();
-
-        return $result->fetch();
+            ->executeQuery()
+            ->fetch();
     }
 
     public function list(): QueryResultInterface {
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer');
-        $result = Self::select($queryBuilder)->executeQuery();
-        return $result->fetchAll();
+        return $this->select()->executeQuery()->fetchAll();
     }
 
-    private static function select(QueryBuilder $queryBuilder): QueryResultInterface {
-        return $queryBuilder
+    private function select(): QueryBuilder {
+        return $this
+            ->connectionPool
+            ->getQueryBuilderForTable('customer')
             ->select('*')
             ->from('customer')
             ->join(
