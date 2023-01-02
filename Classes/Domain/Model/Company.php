@@ -4,7 +4,7 @@ namespace Homeinfo\mdb\Domain\Model;
 
 use Homeinfo\mdb\Domain\Model\Address;
 
-final class Customer
+final class Company
 {
     function __construct(
         public readonly int $id,
