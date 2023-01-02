@@ -5,7 +5,6 @@ namespace Homeinfo\mdb\Domain\Repository;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 class CustomerRepository
 {
@@ -14,7 +13,7 @@ class CustomerRepository
     ) {
     }
 
-    public function findById(int $id): QueryResultInterface {
+    public function findById(int $id): array {
         return ($queryBuilder = $this->select())
             ->where(
                 $queryBuilder->expr()->eq(
@@ -26,7 +25,7 @@ class CustomerRepository
             ->fetch();
     }
 
-    public function list(): QueryResultInterface {
+    public function list(): array {
         return $this->select()->executeQuery()->fetchAll();
     }
 
