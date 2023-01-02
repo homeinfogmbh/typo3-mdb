@@ -1,5 +1,5 @@
 {
-    "name": "homeinfo/pinlogin",
+    "name": "homeinfo/mdb",
     "type": "typo3-cms-extension",
     "description": "",
     "homepage": "https://www.homeinfo.de",
@@ -14,7 +14,7 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "pinlogin"
+            "extension-key": "mdb"
         }
     }
 }
