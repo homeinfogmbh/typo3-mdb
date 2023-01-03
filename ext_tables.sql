@@ -1,4 +1,4 @@
-CREATE TABLE tx_mdb_domain_model_customer (
+CREATE TABLE tx_mdb_domain_model_customer_map (
     uid int(11) unsigned NOT NULL auto_increment,
     pid int(11) DEFAULT 0 NOT NULL,
 
