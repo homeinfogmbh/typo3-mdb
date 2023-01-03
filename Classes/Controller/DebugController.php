@@ -19,8 +19,6 @@ class DebugController extends ActionController
         //     ->get(CustomerRepository::class);
         // $records = $repository->list();
         $repository = GeneralUtility::makeInstance(ObjectManager::class)
-            // Maybe ignore PID here and use a customer
-            // backend-user ID mapping?
             ->get(CustomerMapRepository::class);
         $records = $repository->findAll()->toArray();
         DebuggerUtility::var_dump($records, "Records: ");
