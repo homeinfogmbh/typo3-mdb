@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') || die();
 
 // allow table entries to be added to normal pages
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_mdb_domain_model_customer');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_mdb_domain_model_customer_map');
 
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
