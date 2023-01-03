@@ -20,7 +20,7 @@ class DebugController extends ActionController
         // $records = $repository->list();
         $repository = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(CustomerMapRepository::class);
-        $records = $repository->getCustomerIds();
+        $records = $repository->findAll();
         DebuggerUtility::var_dump($records, "Records: ");
         $this->view->assign('check_results', $records);
     }
