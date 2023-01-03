@@ -34,10 +34,8 @@ return [
             'exclude' => false,
             'label' => 'Customer ID',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',                
-                'size' => 1,
-                'minitems' => 0,
+                'type' => 'input',
+                'nullable' => false,
             ],
         ],
     ],
