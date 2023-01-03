@@ -22,6 +22,6 @@ CREATE TABLE tx_mdb_domain_model_customer (
     endtime int(11) DEFAULT '0' NOT NULL,
 
     PRIMARY KEY (uid),
-    KEY parent (pid)
-    UNIQUE KEY (cid)
+    KEY parent (pid),
+    UNIQUE KEY (cid),
 );
