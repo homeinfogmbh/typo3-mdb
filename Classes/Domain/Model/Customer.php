@@ -21,7 +21,7 @@ final class Customer
             $record,
             Company::fromArray(
                 [
-                    'id' => $record['company_id'],
+                    'id' => $record['company'],
                     'name' => $record['company_name'],
                     'annotation' => $record['company_annotation'],
                 ],

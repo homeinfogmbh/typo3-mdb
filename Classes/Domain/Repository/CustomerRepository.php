@@ -40,7 +40,6 @@ class CustomerRepository
         return ($queryBuilder = $this->connectionPool->getQueryBuilderForTable('customer'))
             ->select(
                 'customer.*',
-                'company.id AS company_id',
                 'company.name AS company_name',
                 'company.annotation AS company_annotation',
                 'address.id AS address_id',
