@@ -23,5 +23,5 @@ CREATE TABLE tx_mdb_domain_model_customer (
 
     PRIMARY KEY (uid),
     KEY parent (pid),
-    UNIQUE KEY (cid),
+    UNIQUE KEY customer_id (cid),
 );
