@@ -9,7 +9,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class CustomerMapRepository extends Repository
 {
     public function getCustomerIds(): Generator {
-        foreach ($this->findAll() as &$record)
+        foreach ($this->findAll() as $record)
         {
             yield $record->cid;
         }
