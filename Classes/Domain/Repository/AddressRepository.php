@@ -17,7 +17,7 @@ class AddressRepository
     ) {
     }
 
-    public function getMap(int $id): array {
+    public function getMap(): array {
         $map = [];
 
         foreach ($this->list() as &$address)
