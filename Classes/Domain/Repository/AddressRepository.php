@@ -17,6 +17,17 @@ class AddressRepository
     ) {
     }
 
+    public function getMap(int $id): array {
+        $map = [];
+
+        foreach ($this->list() as &$address)
+        {
+            $map[$address->id] = $address;
+        }
+
+        return $map;
+    }
+
     public function get(int $id): Address {
         return Address::fromArray($this->findById($id));
     }
