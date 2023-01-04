@@ -17,7 +17,7 @@ class AddressRepository
     ) {
     }
 
-    public function get(int $id): array {
+    public function get(int $id): Address {
         return Address::fromArray($this->findById($id));
     }
 
