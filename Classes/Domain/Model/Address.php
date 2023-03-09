@@ -2,6 +2,8 @@
 
 namespace Homeinfo\mdb\Domain\Model;
 
+use Generator;
+
 final class Address
 {
     function __construct(
@@ -24,5 +26,11 @@ final class Address
             $array['city'],
             $array['district'],
         );
+    }
+
+    public static function aliasedFields(string $alias): Generator
+    {
+        foreach (['id', 'street', 'house_number', 'zip_code', 'city', 'district'] as $field)
+            yield $alias . '.' . $field . ' as ' . $alias . '_' . $field;
     }
 }
