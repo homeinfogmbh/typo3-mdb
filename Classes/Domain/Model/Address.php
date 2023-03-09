@@ -25,6 +25,11 @@ final class Address
     )
     {
     }
+    
+    public function __toString()
+    {
+        return $this->street . ' ' . $this->house_number . ', ' . $this->zip_code . ' ' . $this->city;
+    }
 
     public static function fromPrefixedFields(array $array, string $prefix): ?Self
     {
