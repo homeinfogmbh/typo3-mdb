@@ -6,6 +6,15 @@ use Generator;
 
 final class Address
 {
+    private static $FIELDS = [
+        'id',
+        'street',
+        'house_number',
+        'zip_code',
+        'city',
+        'district'
+    ];
+
     function __construct(
         public readonly int $id,
         public readonly string $street,
@@ -57,7 +66,7 @@ final class Address
 
     public static function aliasedFields(string $alias): Generator
     {
-        foreach (['id', 'street', 'house_number', 'zip_code', 'city', 'district'] as $field)
+        foreach (Self::FIELDS as $field)
             yield $alias . '.' . $field . ' as ' . $alias . '_' . $field;
     }
 }
