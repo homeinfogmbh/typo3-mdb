@@ -25,6 +25,7 @@ final class Address
             if (str_starts_with($key, $prefix))
                 $addressFields[substr($key, strlen($prefix))] = $value;
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($array, "Array: ");
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($prefix, "Prefix: ");
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($addressFields, "Extracted address: ");
         return Self::fromArray($addressFields);
