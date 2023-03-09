@@ -17,6 +17,17 @@ final class Address
     {
     }
 
+    public static function fromPrefixedFields(array $array, string $prefix): Self
+    {
+        $addressFields = [];
+
+        foreach ($array as $key => $value)
+            if (str_starts_with($key, $prefix))
+                $addressFields[ltrim($key, $prefix)] = $value;
+
+        return Self::fromArray($addressFields);
+    }
+
     public static function fromArray(array $array): Self
     {
         return new self(
