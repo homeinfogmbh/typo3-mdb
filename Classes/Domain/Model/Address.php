@@ -17,7 +17,7 @@ final class Address
     {
     }
 
-    public static function fromPrefixedFields(array $array, string $prefix): Self
+    public static function fromPrefixedFields(array $array, string $prefix): ?Self
     {
         $addressFields = [];
 
@@ -25,20 +25,32 @@ final class Address
             if (str_starts_with($key, $prefix))
                 $addressFields[substr($key, strlen($prefix))] = $value;
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($array, "Array: ");
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($prefix, "Prefix: ");
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($addressFields, "Extracted address: ");
         return Self::fromArray($addressFields);
     }
 
-    public static function fromArray(array $array): Self
+    public static function fromArray(array $array): ?Self
     {
+        if (($id = $array['id']) === NULL)
+            return NULL;
+
+        if (($street = $array['street']) === NULL)
+            return NULL;
+            
+        if (($house_number = $array['house_number']) === NULL)
+            return NULL;
+            
+        if (($zip_code = $array['zip_code']) === NULL)
+            return NULL;
+            
+        if (($city = $array['city']) === NULL)
+            return NULL;
+
         return new self(
-            $array['id'],
-            $array['street'],
-            $array['house_number'],
-            $array['zip_code'],
-            $array['city'],
+            $id,
+            $street,
+            $house_number,
+            $zip_code,
+            $city,
             $array['district'],
         );
     }
