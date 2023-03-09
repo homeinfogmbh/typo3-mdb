@@ -17,7 +17,8 @@ final class Address
     {
     }
 
-    public static function fromArray(array $array): Self {
+    public static function fromArray(array $array): Self
+    {
         return new self(
             $array['id'],
             $array['street'],
