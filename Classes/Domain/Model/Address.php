@@ -25,6 +25,7 @@ final class Address
             if (str_starts_with($key, $prefix))
                 $addressFields[ltrim($key, $prefix)] = $value;
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($addressFields, "Extracted address fields: ");
         return Self::fromArray($addressFields);
     }
 
