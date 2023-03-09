@@ -39,19 +39,19 @@ final class Address
 
     public static function fromArray(array $array): ?Self
     {
-        if (($id = $array['id']) === NULL)
+        if (($id = $array['id'] ?? NULL) === NULL)
             return NULL;
 
-        if (($street = $array['street']) === NULL)
+        if (($street = $array['street'] ?? NULL) === NULL)
             return NULL;
             
-        if (($house_number = $array['house_number']) === NULL)
+        if (($house_number = $array['house_number'] ?? NULL) === NULL)
             return NULL;
             
-        if (($zip_code = $array['zip_code']) === NULL)
+        if (($zip_code = $array['zip_code'] ?? NULL) === NULL)
             return NULL;
             
-        if (($city = $array['city']) === NULL)
+        if (($city = $array['city'] ?? NULL) === NULL)
             return NULL;
 
         return new self(
