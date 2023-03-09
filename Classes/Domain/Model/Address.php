@@ -23,9 +23,8 @@ final class Address
 
         foreach ($array as $key => $value)
             if (str_starts_with($key, $prefix))
-                $addressFields[ltrim($key, $prefix)] = $value;
+                $addressFields[substr($key, strlen($prefix))] = $value;
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($addressFields, "Extracted address fields: ");
         return Self::fromArray($addressFields);
     }
 
