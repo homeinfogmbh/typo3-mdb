@@ -6,7 +6,7 @@ use Generator;
 
 final class Address
 {
-    private static $FIELDS = [
+    private const FIELDS = [
         'id',
         'street',
         'house_number',
